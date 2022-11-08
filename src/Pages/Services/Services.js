@@ -7,8 +7,8 @@ const Services = () => {
     return (
         <div className='mt-5'>
             <h1 className='text-center pb-4'>Services</h1>
-            <Row xs={1} md={2} className="g-4">
-                {Array.from({ length: 4 }).map((_, idx) => (
+            <Row xs={1} md={3} className="g-4">
+                {Array.from({ length: 3 }).map((_, idx) => (
                     <Col>
                         <Card>
                             <Card.Img variant="top" src="holder.js/100px160" />
