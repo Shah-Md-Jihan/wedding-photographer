@@ -18,6 +18,12 @@ const Header = () => {
                             <Link to={'/'} className="text-decoration-none text-white">Home</Link>
                         </Nav>
                         <Nav className='me-4'>
+                            <Link to={'/service'} className="text-decoration-none text-white">Service</Link>
+                        </Nav>
+                        <Nav className='me-4'>
+                            <Link to={'/about'} className="text-decoration-none text-white">About</Link>
+                        </Nav>
+                        <Nav className='me-4'>
                             <Link to={'/login'} className="text-decoration-none text-white">Login</Link>
                         </Nav>
                     </Nav>

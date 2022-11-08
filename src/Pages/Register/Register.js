@@ -7,7 +7,7 @@ import { FaEye } from "react-icons/fa";
 
 const Register = () => {
     return (
-        <div className='bg-dark p-5 mt-5 w-25 mx-auto text-white rounded-2'>
+        <div style={{ marginTop: "125px" }} className='bg-dark p-5 w-25 mx-auto text-white rounded-2' >
             <h2 className='my-2'>Please Sign Up!</h2>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicName">

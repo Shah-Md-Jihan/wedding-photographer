@@ -8,7 +8,7 @@ import { FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     return (
-        <div className='w-25 mx-auto mt-5 bg-dark text-white p-5 rounded-2'>
+        <div style={{ marginTop: "125px" }} className='w-25 mx-auto bg-dark text-white p-5 rounded-2'>
             <h2 className='my-2'>Please Login!</h2>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
