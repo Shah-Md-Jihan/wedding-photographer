@@ -1,7 +1,9 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
     return (
@@ -19,11 +21,17 @@ const Services = () => {
                                     lead-in to additional content. This content is a little bit
                                     longer.
                                 </Card.Text>
+
                             </Card.Body>
                         </Card>
                     </Col>
                 ))}
             </Row>
+            <div className='d-flex justify-content-center'>
+                <Link to={'/service'}>
+                    <Button variant="danger" className='mt-4'>See All</Button>
+                </Link>
+            </div>
         </div>
     );
 };
