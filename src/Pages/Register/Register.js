@@ -3,14 +3,18 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { FaEyeSlash } from 'react-icons/fa';
+import { FaEye } from "react-icons/fa";
 
-
-const Login = () => {
+const Register = () => {
     return (
-        <div className='w-25 mx-auto mt-5 bg-dark text-white p-5 rounded-2'>
-            <h2 className='my-2'>Please Login!</h2>
+        <div className='bg-dark p-5 mt-5 w-25 mx-auto text-white rounded-2'>
+            <h2 className='my-2'>Please Sign Up!</h2>
             <Form>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" placeholder="Enter name" />
+                </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
@@ -25,18 +29,21 @@ const Login = () => {
                             aria-describedby="basic-addon1"
                         />
                         <InputGroup.Text id="basic-addon1">
-                            <FaEyeSlash />
+                            <FaEye />
                         </InputGroup.Text>
                     </InputGroup>
                 </Form.Group>
 
-                <p>New to our site?Please <Link to="/register" className='text-info fw-bold text-decoration-none'>Sign Up</Link></p>
-                <Button variant="danger" type="submit">
-                    Login
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Agree with our terms & condition?" />
+                </Form.Group>
+                <p>Already have an account?Please <Link to="/login" className='text-warning fw-bold text-decoration-none'>Login</Link></p>
+                <Button variant="info" type="submit">
+                    Sign Up
                 </Button>
             </Form>
         </div>
     );
 };
 
-export default Login;
+export default Register;
