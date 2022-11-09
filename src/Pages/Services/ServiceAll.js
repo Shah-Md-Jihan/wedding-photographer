@@ -49,7 +49,11 @@ const ServiceAll = () => {
                                         </Card.Text>
                                         <div className='d-flex justify-content-between align-items-center'>
                                             <p className='fw-bold fs-5 text-warning'>${singleService?.price}</p>
-                                            <p><Link><Button variant='warning'>View Details</Button></Link></p>
+                                            <p>
+                                                <Link to={`/services/${singleService?._id}`}>
+                                                    <Button variant='warning'>View Details</Button>
+                                                </Link>
+                                            </p>
                                         </div>
                                     </Card.Body>
                                 </Card>
