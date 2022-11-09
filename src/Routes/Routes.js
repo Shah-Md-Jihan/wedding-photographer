@@ -4,6 +4,7 @@ import AboutDetail from "../Pages/About/AboutDetail";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AddService from "../Pages/Services/AddService";
 import ServiceAll from "../Pages/Services/ServiceAll";
 
 
@@ -19,6 +20,10 @@ const routes = createBrowserRouter([
             {
                 path: '/service',
                 element: <ServiceAll></ServiceAll>
+            },
+            {
+                path: '/add/service',
+                element: <AddService></AddService>
             },
             {
                 path: '/about',

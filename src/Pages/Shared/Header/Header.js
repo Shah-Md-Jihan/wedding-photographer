@@ -21,6 +21,9 @@ const Header = () => {
                             <Link to={'/service'} className="text-decoration-none text-white">Service</Link>
                         </Nav>
                         <Nav className='me-4'>
+                            <Link to={'/add/service'} className="text-decoration-none text-white">Add Service</Link>
+                        </Nav>
+                        <Nav className='me-4'>
                             <Link to={'/about'} className="text-decoration-none text-white">About</Link>
                         </Nav>
                         <Nav className='me-4'>
