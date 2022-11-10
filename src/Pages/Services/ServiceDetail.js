@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 import Review from '../Shared/Review/Review';
 
 const ServiceDetail = () => {
+    const { user } = useContext(AuthContext);
     const service_info = useLoaderData();
     return (
         <Container>
@@ -34,7 +36,7 @@ const ServiceDetail = () => {
                 </div>
                 {/* review section  */}
                 <div>
-                    <Review service_info={service_info}></Review>
+                    <Review service_info={service_info} usr={user}></Review>
                 </div>
             </div>
         </Container>

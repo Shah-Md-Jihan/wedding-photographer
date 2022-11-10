@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FloatingLabel } from 'react-bootstrap';
 import ReviewBox from './ReviewBox';
+import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
+import { Link } from 'react-router-dom';
 
 
 
 const Review = ({ service_info }) => {
+    const { user } = useContext(AuthContext);
 
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/service/review')
+        fetch(`http://127.0.0.1:5000/service/review/${service_info?._id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     })
@@ -49,6 +52,8 @@ const Review = ({ service_info }) => {
 
 
     }
+
+    // console.log(user?.uid);
     return (
         <div>
             <h2>Reviews:</h2>
@@ -60,36 +65,42 @@ const Review = ({ service_info }) => {
 
 
                 {/* review form  */}
-                <div style={{ marginLeft: "11%" }} className="mt-5">
-                    <Form onSubmit={handleReviewSubmit}>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control type="hidden" name="user_email" value="jondoe@gmai.com" />
-                            <Form.Control type="hidden" name="user_name" value="Jon Doe" />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <select className='form-control' name="rating">
-                                <option value="5">--select 5 star rating--</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </Form.Group>
-                        <FloatingLabel controlId="floatingTextarea2" label="Review">
-                            <Form.Control
-                                name="review"
-                                as="textarea"
-                                placeholder="Leave your review here"
-                                style={{ height: '100px' }}
-                                required
-                            />
-                        </FloatingLabel>
+                <div className="mt-5">
 
-                        <Button variant="primary" type="submit" className='w-100 mt-2 rounded-0 border-0' style={{ background: "tomato" }} size="lg">
-                            Leave Your Review
-                        </Button>
-                    </Form>
+                    {
+                        user?.uid ? <Form onSubmit={handleReviewSubmit}>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Control type="hidden" name="user_email" value={user?.email} />
+                                <Form.Control type="hidden" name="user_name" value={user?.displayName} />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <select className='form-control' name="rating">
+                                    <option value="5">--select 5 star rating--</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </Form.Group>
+                            <FloatingLabel controlId="floatingTextarea2" label="Review">
+                                <Form.Control
+                                    name="review"
+                                    as="textarea"
+                                    placeholder="Leave your review here"
+                                    style={{ height: '100px' }}
+                                    required
+                                />
+                            </FloatingLabel>
+
+                            <Button variant="primary" type="submit" className='w-100 mt-2 rounded-0 border-0' style={{ background: "tomato" }} size="lg">
+                                Leave Your Review
+                            </Button>
+                        </Form>
+                            :
+                            <Link to="/login" className='fw-bold text-decoration-none text-danger'>Please Login to Leave Your Review</Link>
+                    }
+
                 </div>
             </div>
 

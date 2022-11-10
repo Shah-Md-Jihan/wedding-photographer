@@ -11,7 +11,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-    const { providerGoogleLogin } = useContext(AuthContext);
+    const { providerGoogleLogin, providerEmailLogin } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
 
     const handleGoogleLogin = () => {
@@ -22,19 +22,37 @@ const Login = () => {
             })
             .catch(error => console.log(error))
     }
+
+    const handleEmailLogin = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        providerEmailLogin(email, password)
+            .then(userData => {
+                const user = userData.user;
+                console.log(user);
+                form.reset();
+            })
+            .catch(error => console.error(error))
+    }
+
+
     return (
         <div style={{ marginTop: "125px" }} className='w-25 mx-auto bg-dark text-white p-5 rounded-2'>
             <h2 className='my-2'>Please Login!</h2>
-            <Form>
+            <Form onSubmit={handleEmailLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" name="email" placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <InputGroup className="mb-3">
                         <Form.Control
+                            name="password"
                             placeholder="Password"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
