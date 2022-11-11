@@ -1,3 +1,19 @@
+# Site name:
+### Adam Milne.
+
+# live site link: 
+### https://wedding-photographer-9fbd4.web.app/
+
+## Complete Project With
+
+* React Router
+* Bootstrap Nav Bar
+* React Icons
+* Bootstrap and React-Bootstrap Componet
+* Vanila CSS
+* Firebase Authentication with google & email password login system
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
