@@ -12,7 +12,7 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:5000/my/reviews/${user?.email}`)
+        fetch(`https://weeding-photographer-server.vercel.app/my/reviews/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyReviews(data))
     }, []);
@@ -20,7 +20,7 @@ const MyReviews = () => {
     const handleReviewDelete = (id) => {
         const confirmation = window.confirm('Are you sure to delete?');
         if (confirmation) {
-            fetch(`http://127.0.0.1:5000/my/reviews/delete/${id}`, {
+            fetch(`https://weeding-photographer-server.vercel.app/my/reviews/delete/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

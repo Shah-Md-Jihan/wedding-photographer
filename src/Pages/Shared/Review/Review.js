@@ -12,11 +12,13 @@ const Review = ({ service_info }) => {
     const { user } = useContext(AuthContext);
 
     const [reviews, setReviews] = useState([]);
+
     useEffect(() => {
-        fetch(`http://127.0.0.1:5000/service/review/${service_info?._id}`)
+        fetch(`https://weeding-photographer-server.vercel.app/service/review/${service_info?._id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     })
+    // console.log(reviews);
     const service_name = service_info?.name;
     const handleReviewSubmit = (e) => {
         e.preventDefault();
@@ -34,7 +36,7 @@ const Review = ({ service_info }) => {
             review: review
         }
 
-        fetch('http://127.0.0.1:5000/services/review', {
+        fetch('https://weeding-photographer-server.vercel.app/services/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

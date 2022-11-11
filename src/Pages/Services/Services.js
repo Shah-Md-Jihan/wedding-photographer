@@ -9,7 +9,7 @@ import { FaStar } from "react-icons/fa";
 const Services = () => {
     const [homePageService, setHomePageService] = useState([]);
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/home/services')
+        fetch('https://weeding-photographer-server.vercel.app/home/services')
             .then(res => res.json())
             .then(data => setHomePageService(data))
     }, []);

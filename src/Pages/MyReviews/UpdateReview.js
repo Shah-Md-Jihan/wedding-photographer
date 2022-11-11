@@ -29,7 +29,7 @@ const UpdateReview = () => {
         }
 
         setError('');
-        fetch(`http://127.0.0.1:5000/my/reviews/update/${storedReview?._id}`, {
+        fetch(`https://weeding-photographer-server.vercel.app/my/reviews/update/${storedReview?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -3,6 +3,7 @@ import { FaStar, FaUser } from 'react-icons/fa';
 
 
 const ReviewBox = ({ review }) => {
+    console.log(review)
     return (
         <div className="card mb-3">
             <div className="row g-0">

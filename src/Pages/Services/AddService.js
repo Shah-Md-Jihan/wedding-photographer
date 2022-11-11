@@ -39,7 +39,7 @@ const AddService = () => {
     const handleServiceAdd = (e) => {
         e.preventDefault();
         const form = e.target;
-        fetch('http://127.0.0.1:5000/services', {
+        fetch('https://weeding-photographer-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

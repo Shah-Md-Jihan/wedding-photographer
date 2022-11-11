@@ -31,7 +31,7 @@ const routes = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <ServiceDetail></ServiceDetail>,
-                loader: ({ params }) => fetch(`http://127.0.0.1:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://weeding-photographer-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/add/service',
@@ -44,7 +44,7 @@ const routes = createBrowserRouter([
             {
                 path: '/my/reviews/update/:id',
                 element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://127.0.0.1:5000/my/reviews/update/${params.id}`)
+                loader: ({ params }) => fetch(`https://weeding-photographer-server.vercel.app/my/reviews/update/${params.id}`)
             },
             {
                 path: '/about',

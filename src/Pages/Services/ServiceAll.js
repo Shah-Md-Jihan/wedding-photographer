@@ -18,7 +18,7 @@ const ServiceAll = () => {
 
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/services')
+        fetch('https://weeding-photographer-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
