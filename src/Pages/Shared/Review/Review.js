@@ -53,7 +53,7 @@ const Review = ({ service_info }) => {
 
     }
 
-    // console.log(user?.uid);
+
     return (
         <div>
             <h2>Reviews:</h2>
@@ -76,11 +76,11 @@ const Review = ({ service_info }) => {
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <select className='form-control' name="rating">
                                     <option value="5">--select 5 star rating--</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
+                                    <option value="1">1 star</option>
+                                    <option value="2">2 star</option>
+                                    <option value="3">3 star</option>
+                                    <option value="4">4 star</option>
+                                    <option value="5">5 star</option>
                                 </select>
                             </Form.Group>
                             <FloatingLabel controlId="floatingTextarea2" label="Review">

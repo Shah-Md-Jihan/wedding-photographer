@@ -4,6 +4,7 @@ import { FaStar } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { Link } from 'react-router-dom';
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
@@ -13,6 +14,24 @@ const MyReviews = () => {
             .then(res => res.json())
             .then(data => setMyReviews(data))
     }, []);
+
+    const handleReviewDelete = (id) => {
+        const confirmation = window.confirm('Are you sure to delete?');
+        if (confirmation) {
+            fetch(`http://127.0.0.1:5000/my/reviews/delete/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data?.deletedCount > 0) {
+                        alert('Review deleted');
+                        const remainingReviews = myReviews.filter(rev => rev._id !== id);
+                        setMyReviews(remainingReviews);
+                    }
+                })
+        }
+
+    }
 
 
     return (
@@ -39,13 +58,23 @@ const MyReviews = () => {
                                     </div>
                                     <div>
                                         <ButtonGroup aria-label="Basic example">
-                                            <Button variant="warning">Edit</Button>
-                                            <Button variant="danger">Delete</Button>
+                                            <Link to={`/my/reviews/update/${review?._id}`}>
+                                                <Button variant="warning">Edit</Button>
+                                            </Link>
+
+                                            <Button onClick={() => handleReviewDelete(review?._id)} variant="danger">Delete</Button>
                                         </ButtonGroup>
                                     </div>
                                 </div>
                             </Card.Body>
                         </Card>)
+                }
+                {
+                    myReviews.length === 0 && <Card className="text-center">
+                        <Card.Body>
+                            <Card.Title style={{ height: "300px" }} className='d-flex align-items-center justify-content-center fw-bold fs-3 text-danger'>No review to display!</Card.Title>
+                        </Card.Body>
+                    </Card>
                 }
             </Container>
         </div>
