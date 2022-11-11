@@ -57,6 +57,7 @@ const Register = () => {
                     <InputGroup className="mb-3">
                         <Form.Control
                             name="password"
+                            type="password"
                             placeholder="Password"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
