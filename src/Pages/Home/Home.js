@@ -4,6 +4,7 @@ import Slider from './Slider/Slider';
 import Container from 'react-bootstrap/Container';
 import About from '../About/About';
 import Review from '../Review/Review';
+import AboutPhotoStudio from '../About/AboutPhotoStudio';
 
 const Home = () => {
     return (
@@ -13,7 +14,7 @@ const Home = () => {
             <Container>
                 <About></About>
                 <Services></Services>
-                <Review></Review>
+                <AboutPhotoStudio></AboutPhotoStudio>
             </Container>
         </div>
     );

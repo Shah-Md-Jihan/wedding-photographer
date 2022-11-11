@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext/AuthProvider";
 import Main from "../Layouts/Main";
 import AboutDetail from "../Pages/About/AboutDetail";
+import Blogs from "../Pages/Blogs/Blogs";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MyReviews from "../Pages/MyReviews/MyReviews";
@@ -48,6 +49,10 @@ const routes = createBrowserRouter([
             {
                 path: '/about',
                 element: <AboutDetail></AboutDetail>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
                 path: '/login',

@@ -15,9 +15,11 @@ const About = () => {
                 </Col>
                 <Col>
                     <div>
-                        <h1>Lorem, ipsum dolor.</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea labore necessitatibus sed repudiandae culpa libero nostrum autem, distinctio corporis cum! Ad libero neque aliquid ut quod voluptatibus. Quod, deserunt hic!</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio, at. Rerum quis magnam consequatur. Facilis repudiandae reiciendis hic quos tempore, eligendi in, temporibus dignissimos qui itaque rerum nam, fuga saepe consequuntur sequi laboriosam nemo distinctio? Dicta eum error delectus deserunt necessitatibus, reiciendis architecto, dolorum unde harum rem inventore. Placeat, eum rerum incidunt officia adipisci quisquam facere modi dolorum quia voluptatum?</p>
+                        <h1>About Our Videography</h1>
+
+                        <p>I provide best quality video record service.I have best camera for high dimensition video.You want to record your event?You can cotact me.</p>
+
+                        <p>For record birthday ceremony, marage ceremony and many more event you want record we provide video recording service.</p>
                         <Button variant="outline-info">Know More</Button>
                     </div>
                 </Col>

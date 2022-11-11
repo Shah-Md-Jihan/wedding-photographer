@@ -47,6 +47,9 @@ const Header = () => {
                         <Nav className='me-4'>
                             <Link to={'/about'} className="text-decoration-none text-white">About</Link>
                         </Nav>
+                        <Nav className='me-4'>
+                            <Link to={'/blogs'} className="text-decoration-none text-white">Blogs</Link>
+                        </Nav>
 
                         {
                             user?.uid ?
