@@ -4,7 +4,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import about from '../../assets/Images/about/about.jpg';
 
+
 const About = () => {
+
     return (
         <div className='mt-5'>
             <Row xs={1} md={2} className="g-4">

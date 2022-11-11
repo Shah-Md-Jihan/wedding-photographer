@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Container, Spinner } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -7,9 +7,13 @@ import Row from 'react-bootstrap/Row';
 
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthContext/AuthProvider';
+import useSetTitle from '../../hooks/useSetTitle';
 
 
 const ServiceAll = () => {
+    useSetTitle('Services')
+    const { loader } = useContext(AuthContext);
     const [allServices, setServices] = useState([]);
 
 
@@ -18,6 +22,12 @@ const ServiceAll = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
+
+    if (loader) {
+        return <Spinner style={{ margin: "300px 700px" }} className='' animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>
+    }
 
 
 

@@ -5,8 +5,10 @@ import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { Link } from 'react-router-dom';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const MyReviews = () => {
+    useSetTitle('My Reviews');
     const { user } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
     useEffect(() => {

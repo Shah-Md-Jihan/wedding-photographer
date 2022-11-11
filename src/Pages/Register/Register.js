@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { FaEye } from "react-icons/fa";
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const Register = () => {
+    useSetTitle('Register');
     const { providerCrateUserWithEmail, updateUserProfile } = useContext(AuthContext);
 
     const handleCreateUser = (e) => {

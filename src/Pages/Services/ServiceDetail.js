@@ -3,9 +3,11 @@ import { Button, Container } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
+import useSetTitle from '../../hooks/useSetTitle';
 import Review from '../Shared/Review/Review';
 
 const ServiceDetail = () => {
+    useSetTitle('Service Details');
     const { user } = useContext(AuthContext);
     const service_info = useLoaderData();
     return (

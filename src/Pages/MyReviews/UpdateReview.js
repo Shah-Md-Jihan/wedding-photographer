@@ -3,9 +3,11 @@ import { FloatingLabel } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useLoaderData } from 'react-router-dom';
+import useSetTitle from '../../hooks/useSetTitle';
 
 
 const UpdateReview = () => {
+    useSetTitle('Update Review');
     const storedReview = useLoaderData();
     const [review, setReview] = useState(storedReview);
     const [error, setError] = useState('');

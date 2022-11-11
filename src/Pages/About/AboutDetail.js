@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import about from '../../assets/Images/about/about.jpg';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const AboutDetail = () => {
+    useSetTitle('About');
     return (
         <Container>
             <div style={{ marginTop: "125px" }}>

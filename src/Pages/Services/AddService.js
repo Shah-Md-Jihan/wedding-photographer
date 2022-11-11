@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button, Card, FloatingLabel } from 'react-bootstrap';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const AddService = () => {
+    useSetTitle('Add Service');
     const [serviceName, setServiceName] = useState('');
     const [ratings, setRatings] = useState(null);
     const [price, setPrice] = useState(null);

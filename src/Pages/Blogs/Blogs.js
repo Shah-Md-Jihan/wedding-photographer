@@ -1,9 +1,10 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const Blogs = () => {
+    useSetTitle('Blogs');
     return (
         <div style={{ marginTop: "125px" }}>
             <h2 className='text-center'>Blogs</h2>

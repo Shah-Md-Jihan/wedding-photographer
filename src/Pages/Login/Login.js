@@ -7,10 +7,14 @@ import { FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { Spinner } from 'react-bootstrap';
+import useSetTitle from '../../hooks/useSetTitle';
 
 
 
 const Login = () => {
+    useSetTitle('Login');
+    const { loader } = useContext(AuthContext);
     const { providerGoogleLogin, providerEmailLogin } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
     const location = useLocation();
@@ -36,7 +40,11 @@ const Login = () => {
         providerEmailLogin(email, password)
             .then(userData => {
                 const user = userData.user;
-                console.log(user);
+                if (loader) {
+                    return <Spinner style={{ margin: "300px 700px" }} className='' animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                }
                 navigate(from, { replace: true });
                 form.reset();
             })
