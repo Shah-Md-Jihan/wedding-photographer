@@ -33,9 +33,14 @@ const Header = () => {
                         </Nav>
 
                         {
-                            user?.uid && <Nav className='me-4'>
-                                <Link to={'/add/service'} className="text-decoration-none text-white">Add Service</Link>
-                            </Nav>
+                            user?.uid && <>
+                                <Nav className='me-4'>
+                                    <Link to={'/add/service'} className="text-decoration-none text-white">Add Service</Link>
+                                </Nav>
+                                <Nav className='me-4'>
+                                    <Link to={'/my/reviews'} className="text-decoration-none text-white">My Reviews</Link>
+                                </Nav>
+                            </>
                         }
 
 

@@ -1,7 +1,7 @@
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { useContext } from 'react';
@@ -13,6 +13,10 @@ import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
     const { providerGoogleLogin, providerEmailLogin } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleLogin = () => {
         providerGoogleLogin(provider)
@@ -33,6 +37,7 @@ const Login = () => {
             .then(userData => {
                 const user = userData.user;
                 console.log(user);
+                navigate(from, { replace: true });
                 form.reset();
             })
             .catch(error => console.error(error))

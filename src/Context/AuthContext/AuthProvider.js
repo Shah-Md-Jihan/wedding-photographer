@@ -42,6 +42,7 @@ const AuthProvider = ({ children }) => {
         providerCrateUserWithEmail,
         updateUserProfile,
         providerEmailLogin,
+        loader,
         providerLogOut
     }
     useEffect(() => {

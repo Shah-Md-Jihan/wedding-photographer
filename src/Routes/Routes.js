@@ -1,14 +1,18 @@
+import { useContext } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext/AuthProvider";
 import Main from "../Layouts/Main";
 import AboutDetail from "../Pages/About/AboutDetail";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import MyReviews from "../Pages/MyReviews/MyReviews";
 import Register from "../Pages/Register/Register";
 import AddService from "../Pages/Services/AddService";
 import ServiceAll from "../Pages/Services/ServiceAll";
 import ServiceDetail from "../Pages/Services/ServiceDetail";
+import PrivateRoute from "./PrivateRoute";
 
-
+// const { user } = useContext(AuthContext);
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -29,7 +33,11 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/add/service',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
+            },
+            {
+                path: '/my/reviews',
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
             },
             {
                 path: '/about',

@@ -17,7 +17,7 @@ const Review = ({ service_info }) => {
             .then(res => res.json())
             .then(data => setReviews(data))
     })
-    const service_id = service_info?._id;
+    const service_name = service_info?.name;
     const handleReviewSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -27,7 +27,7 @@ const Review = ({ service_info }) => {
         const review = form.review.value;
 
         const reviews = {
-            service_id: service_id,
+            service_name: service_name,
             user_email: user_email,
             user_name: user_name,
             rating: rating,
