@@ -15,7 +15,7 @@ const Review = ({ service_info }) => {
     queryKey: ["review", service_info?.name],
     queryFn: async () => {
       setReviewsLoading(true);
-      const res = await fetch(`http://127.0.0.1:5000/service/review/${service_info?.name}`);
+      const res = await fetch(`https://weeding-photographer-server.vercel.app/service/review/${service_info?.name}`);
       const data = await res.json();
       setReviewsLoading(false);
       return data;
